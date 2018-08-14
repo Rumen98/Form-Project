@@ -7,9 +7,12 @@
 	
 
 
-$sql="SELECT * FROM addresses left join users on address_id=user_id left join notes on note_id=user_id ORDER BY address_id DESC LIMIT 1 ;";
+$sql="SELECT * FROM addresses left join users on address_id=user_id  ORDER BY address_id DESC LIMIT 1 ;";
+$sql1="SELECT * FROM notes left join users on note_id=user_id ORDER BY user_id DESC LIMIT 2";
+
 
 $result=mysqli_query($conn,$sql);
+$result1=mysqli_query($conn,$sql1);
 
 
 
@@ -31,7 +34,7 @@ $result=mysqli_query($conn,$sql);
  <th>Адрес на Потребителя</th>
  <th>2ри Адрес на Потребителя</th>
  <th>Телефонен Номер на Потребителя</th>
- <th>Бележки на потребителите</th>
+ 
 
  </tr>
 
@@ -48,17 +51,32 @@ $result=mysqli_query($conn,$sql);
  <td><?php echo $row["address_line_1"]; ?></td>
   <td><?php echo $row["address_line_2"]; ?></td>
   <td><?php echo $row["user_phone"]; ?></td>
-  <td><?php echo $row["note_text"]; ?></td>
+ 
  </tr>
  
  <?php 
  }
  }
 
- 
- 
- header("refresh:10 ; Location:index.php");
+ if(mysqli_num_rows($result1)>0) {
+ 	while ($rows=mysqli_fetch_array($result1)) {
+ ?>	
+ 	<th>Бележки</th>
+ 	<tr>
+ 		<td><?php echo $rows["note_text"]; ?></td>
+ 		
+ 	</tr>
+ 	
+<?php 
+	}
+}
+
+
  ?>
+ 
+ 
+
+
  	</div>
 <a href="update.php">Промяна на данни</a>
 <br>

@@ -21,8 +21,7 @@ body {background-color: grey} ;
 
 
 	
-</form>
-<form method="post" action="insertExtraNote.php">
+
 	 <input type="submit" name="extraNote" value="Добави Нова бележка">
 </form>
 	<a href="index2.php">Предишна стъпка</a>

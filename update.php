@@ -1,9 +1,7 @@
 <?php 
 include 'connection.php';
 			session_start();
-			$_SESSION['username'] = $_POST['Fname'];
-			echo "Welcome," . $_SESSION['userinfo']['fname']." " . $_SESSION['userinfo']['lname'];
-
+			
 
  ?>
  <html lang="en">
@@ -51,23 +49,19 @@ include 'connection.php';
                             echo "<table class='table table-bordered table-striped'>";
                                 echo "<thead>";
                                     echo "<tr>";
-                                        echo "<th>#</th>";
-                                        echo "<th>Name</th>";
-                                        echo "<th>Email</th>";
+                                        
                                         echo "<th>Address</th>";
-                                        echo "<th>Phone</th>";
-                                        echo "<th>Note</th>";
+                                                 echo "<th>Address</th>";
+                                       
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
                                 while($row = mysqli_fetch_array($result)){
                                     echo "<tr>";
-                                        echo "<td>" . $row['user_id'] .  "</td>";
-                                        echo "<td>" . $row['user_fname'] . " " . $row['user_lname'] ; "</td>";
-                                        echo "<td>" . $row['user_email'] . "</td>";
+                                      
                                         echo "<td>" . $row['address_line_1'] . "</td>";
-                                          echo "<td>" . $row['user_phone'] . "</td>";
-                                            echo "<td>" . $row['note_text'] . "</td>";
+                                         echo "<td>" . $row['address_line_2'] . "</td>";
+                                          
                                         echo "<td>";
                                                 $adresi = array ();
                                                  $adresi['adr1'] = $row['"address_line_1'];

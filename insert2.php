@@ -14,7 +14,7 @@
 			if (isset($_POST['submit'])) {
 				if (empty($_POST['address']) || empty($_POST['ZipCode']) || empty($_POST['city']) || empty($_POST['province']) ) {
 					echo "Lipsvat danni";
-					$greshka =   "<script> location.href='index.php'; </script>";
+					$greshka =   "<script> location.href='Error.php'; </script>";
 					sleep(3);
 					echo $greshka;
 
